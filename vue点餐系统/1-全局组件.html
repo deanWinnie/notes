@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+    <div id="app">
+        <dean></dean>
+    </div>
+    <div id="wt">
+        <dean></dean>
+    </div>
+
+    <template id="btn">
+        <div>
+            <button @click=click>点击{{count}}次</button>
+            <span>winnie</span>
+        </div>
+    </template>
+<body>
+    
+
+    <script>
+        Vue.component("dean",{
+            template:"#btn",
+            data(){
+                return{
+                    count:0
+                }
+            },
+            methods:{
+                click(){
+                    this.count++;
+                }
+            }
+        })
+
+        new Vue({
+            el:"#app"
+        })
+        new Vue({
+            el:"#wt"
+        })
+    </script>
+</body>
+</html>

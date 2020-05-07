@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style>
+.box{
+    width: 100px;
+    height: 100px;
+}
+</style>
+<body>
+    <div id="app">
+        <you>
+            <h1 slot="winnie">我是雯</h1>
+            <h2 slot="dean">我是涛</h2>
+        </you>
+    </div>
+    
+    
+    <template id="demo">
+        <div class="box">
+            <p>我的世界里</p>
+            <slot name="winnie"></slot>
+            <slot name="dean"></slot>
+        </div>
+    </template>
+    
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        components:{
+            you:{
+                template:'#demo'
+            }
+        },
+    })
+</script>
+
+</html>

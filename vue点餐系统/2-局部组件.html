@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style>
+.nav-item{
+    width: 100px;
+}
+.nav-item li:hover{
+    color: blueviolet;
+}
+</style>
+<body>
+    <div id="app">
+        <dean-winnie></dean-winnie>
+        <hr>
+        <winnie-dean></winnie-dean>
+    </div>
+
+    <template id="nav">
+        <div>
+            <nav @click=touch class="nav-item">
+                <li>{{somebody[0]}}</li>
+                <li>{{somebody[1]}}</li>
+                <li>{{somebody[2]}}</li>
+                <li>{{somebody[3]}}</li>
+            </nav>
+        </div>
+    </template>
+    <template id="list">
+        <div>
+            <nav @click=touch class="nav-item">
+                <li>{{somebody[0]}}</li>
+                <li>{{somebody[1]}}</li>
+                <li>{{somebody[2]}}</li>
+                <li>{{somebody[3]}}</li>
+            </nav>
+        </div>
+    </template>
+
+    <script>
+        new Vue({
+            el:"#app",
+            components:{
+                deanWinnie:{     //第一个局部组件
+                    template:"#nav",
+                    data() {
+                        return {
+                            somebody:['dean','winnie','sam','mark']
+                        }
+                    },
+                    methods: {
+                        touch(){
+                            alert("don't touch me")
+                        }
+                    },
+                },
+                winnieDean:{        //第二个局部组件
+                    template:"#list",
+                    data() {
+                        return {
+                            somebody:['Linda','Helen','Tom','Kevie']
+                        }
+                    },
+                    methods: {
+                        touch(){
+                            alert("don't touch me")
+                        }
+                    }, 
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

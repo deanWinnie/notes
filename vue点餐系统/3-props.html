@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style>
+    #app{
+        display: flex;
+        flex-direction: row;
+    }
+    .box-list{
+        width: 200px;
+        height: 200px;
+        border: 1px solid blueviolet;
+    }
+</style>
+<body>
+    <div id="app">
+        <dean-winnie name="林清玄" book="《白雪少年》"></dean-winnie>
+        <dean-winnie name="钱钟书" book="《围城》"></dean-winnie>
+    </div>
+    <template id="box">
+        <div class="box-list">
+            <p>{{name}}</p>
+            <p>{{book}}</p>
+        </div>
+    </template>
+<script>
+    new Vue({
+        el:"#app",
+        components:{
+            deanWinnie:{
+                template:"#box",
+                props:['name','book']
+            }
+        }
+    })
+</script>    
+</body>
+
+</html>

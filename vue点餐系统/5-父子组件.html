@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style>
+
+    .box{
+        width: 400px;
+        height: 800px;
+        border: 1px solid blueviolet;
+    }
+    .item{
+        width: 150px;
+        height: 250px;
+        border: 1px solid sienna;
+    }
+
+</style>
+<body>
+    <div id="app">
+        <dean>
+            <h1 slot="referral"> I'M A BOOK</h1>
+            <winnie>
+                <h2 slot="book">《围城》</h2>
+                <h2 slot="author">钱钟书</h2>
+            </winnie>
+        </dean>
+    </div>
+
+   <template id="bigBox">
+       <div class="box">
+           <p>this is box</p>
+           <slot name="referral"></slot>
+           <winnie>
+                <h2 slot="book">《呐喊》</h2>
+                <h2 slot="author">鲁迅</h2>
+           </winnie>
+           <winnie>
+            <h2 slot="book">《围城》</h2>
+            <h2 slot="author">钱钟书</h2>
+        </winnie>
+       </div>
+   </template> 
+
+   <template id="smallBox">
+       <div class="item">
+           <h1>I CAN SEE IT</h1>
+            <slot name="book"></slot>
+            <slot name="author"></slot>
+       </div>
+   </template>
+</body>
+
+<script>
+    new Vue({
+        el:'#app',
+        components:{
+            dean:{
+                template:"#bigBox",
+                components:{
+                    winnie:{
+                        template:"#smallBox"
+                    }
+                }
+            }
+        }
+    })
+</script>
+</html>

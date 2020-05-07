@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <father></father>
+    </div>
+
+    <template id="fatherT">
+        <div>
+            <h1>我是爸爸</h1>
+            <p>儿子说：{{sonTalk}}</p>
+            <son :hi='hello' @say='getSay'></son>
+        </div>
+    </template>
+    <template id="sonT">
+        <div>
+            <h1>儿子</h1>
+            <p>爸爸对你说：{{hi}}</p>
+            <button @click='toFather'>看儿子怎么说</button>
+        </div>
+    </template>
+
+
+    <script>
+        new Vue({
+            el:"#app",
+            components:{
+                father:{
+                    template:'#fatherT',
+                    data() {
+                        return {
+                            hello:'崽子',
+                            sonTalk:''
+                        }
+                    },
+                    methods: {
+                        getSay(data){
+                            this.sonTalk=data
+                        }
+                    },
+                    components:{
+                        son:{
+                            template:'#sonT',
+                            data() {
+                                return {
+                                    sonSay:"你是我老子"
+                                }
+                            },
+                            props:['hi'],
+                            methods: {
+                                toFather(){
+                                    this.$emit('say',this.sonSay);
+                                }
+                            },
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

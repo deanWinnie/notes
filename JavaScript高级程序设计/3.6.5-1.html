@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for-in</title>
+</head>
+<body>
+    <script>
+        var obj={
+            "name":"dean",
+            "age":16,
+            "sex":"man",
+            "hobby":"basketball",
+            1:"3"
+        }
+        for(var ex in obj){
+            document.write(ex+"<br>");//输出对象的每个属性名，无序输出
+        }
+    </script>
+</body>
+</html>

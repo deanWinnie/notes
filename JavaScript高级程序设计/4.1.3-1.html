@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传递参数</title>
+</head>
+<body>
+    <script>
+        function addTen(num){
+            num+=10;
+            return num;
+        }
+        var count=20;
+        var result=addTen(count);
+        alert(count);//20
+        alert(result);//30
+        /*
+        *对象参数传递
+        */
+        function setName(obj){
+            obj.name='dean';
+            onj=new Object();
+            obj.name='winnie';
+        }
+        var person=new Object();
+        setName(person);
+        alert(person.name);
+    </script>
+</body>
+</html>

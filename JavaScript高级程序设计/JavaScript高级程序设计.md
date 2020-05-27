@@ -73,7 +73,7 @@ for-in语法
             }
         }
         console.log(num2); // 95  
-# 3.7 函数 #
+##  3.7 函数  ##
 **3.7.2 没有重载**   
 js中的函数是没有重载的  
 示例：
@@ -85,6 +85,31 @@ js中的函数是没有重载的
             return num+200;
         }
         console.log(addNum(100))//300
+# 第4章 变量、作用域、内存问题 #
+##  4.1 基本类型和引用类型的值  ##
+**4.1.3 传递参数**  
+所有函数的参数都是按值传播的。  
+示例：  
+	
+	function addTen(num){
+            num+=10;
+            return num;
+        }
+    var count=20;
+    var result=addTen(count);
+    alert(count);//20
+    alert(result);//30
+    /*
+     *对象参数传递
+     */
+    function setName(obj){
+            obj.name='dean';
+            onj=new Object();
+            obj.name='winnie';
+        }
+     var person=new Object();
+     setName(person);
+     alert(person.name);
 
 	
 

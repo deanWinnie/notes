@@ -109,7 +109,27 @@ js中的函数是没有重载的
         }
      var person=new Object();
      setName(person);
-     alert(person.name);
+     alert(person.name);  
 
+# 第5章 引用类型 #  
+##  5.2 Array类型  ##  
+**5.2.3 栈方法**  
+栈是一种后进先出的数据结构，数组中有push()和pop()方法实现了类似栈的行为。  
+push()方法可以接受任意数量的参数，把他们逐个添加到数组末尾，并返回修改后数组的长度。  
+pop()方法从数组末尾移除最后一项，减少数组的length值，返回移除值。 
+ 
+	var colors=new Array();
+    var count=colors.push('black','white');
+    alert(count);  //2
+
+    count=colors.push('blue');
+    alert(count); //3
+
+    var item=colors.pop();
+    alert(item); //blue
+
+**5.2.4 队列方法**  
+队列是一种先进先出的数据结构，数组中有shift()和push()方法实现了类似队列的行为。  
+ 
 	
 
